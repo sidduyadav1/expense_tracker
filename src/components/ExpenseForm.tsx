@@ -85,7 +85,7 @@ export const ExpenseForm = ({ onAddExpense }: ExpenseFormProps) => {
             </div>
             <div className="space-y-2">
               <Label htmlFor="amount" className="text-slate-700">
-                Amount ($)
+                Amount (₹)
               </Label>
               <Input
                 id="amount"

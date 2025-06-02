@@ -43,7 +43,7 @@ export const ExpenseSummary = ({ expenses }: ExpenseSummaryProps) => {
         </CardHeader>
         <CardContent>
           <div className="text-3xl font-bold mb-2">
-            ${totalAmount.toFixed(2)}
+            ₹{totalAmount.toFixed(2)}
           </div>
           <p className="text-blue-100 text-sm">
             {expenses.length} transaction{expenses.length !== 1 ? "s" : ""}
@@ -61,7 +61,7 @@ export const ExpenseSummary = ({ expenses }: ExpenseSummaryProps) => {
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold text-slate-800 mb-2">
-            ${thisMonthTotal.toFixed(2)}
+            ₹{thisMonthTotal.toFixed(2)}
           </div>
           <p className="text-slate-600 text-sm">
             {thisMonthExpenses.length} transaction{thisMonthExpenses.length !== 1 ? "s" : ""}
@@ -83,7 +83,7 @@ export const ExpenseSummary = ({ expenses }: ExpenseSummaryProps) => {
               {topCategory.category}
             </div>
             <div className="text-xl font-bold text-slate-800 mb-2">
-              ${topCategory.total.toFixed(2)}
+              ₹{topCategory.total.toFixed(2)}
             </div>
             <p className="text-slate-600 text-sm">
               {topCategory.count} transaction{topCategory.count !== 1 ? "s" : ""}
@@ -111,7 +111,7 @@ export const ExpenseSummary = ({ expenses }: ExpenseSummaryProps) => {
                       {item.category}
                     </span>
                     <span className="text-sm font-bold text-slate-800">
-                      ${item.total.toFixed(2)}
+                      ₹{item.total.toFixed(2)}
                     </span>
                   </div>
                 ))}

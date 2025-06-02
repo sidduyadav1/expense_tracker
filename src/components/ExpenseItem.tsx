@@ -30,7 +30,7 @@ export const ExpenseItem = ({ expense, onDelete, index }: ExpenseItemProps) => {
             {expense.title}
           </h3>
           <span className="text-lg font-bold text-slate-800">
-            ${expense.amount.toFixed(2)}
+            ₹{expense.amount.toFixed(2)}
           </span>
         </div>
         <div className="flex items-center gap-3 text-sm text-slate-500">
