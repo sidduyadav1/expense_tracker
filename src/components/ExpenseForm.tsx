@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -61,13 +60,15 @@ export const ExpenseForm = ({ onAddExpense }: ExpenseFormProps) => {
 
   return (
     <Card className="backdrop-blur-sm bg-white/70 border-white/20 shadow-lg">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2 text-slate-800">
-          <Plus className="h-5 w-5 text-blue-600" />
-          Add New Expense
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
+  <CardHeader>
+    <CardTitle className="flex items-center gap-2 text-slate-800">
+      <span className="group flex items-center gap-2 cursor-pointer">
+        <Plus className="h-5 w-5 text-blue-600 transition-transform duration-300  group-hover:rotate-90 group-hover:scale-110" />
+        Add New Expense
+      </span>
+    </CardTitle>
+  </CardHeader>
+  <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
@@ -80,7 +81,7 @@ export const ExpenseForm = ({ onAddExpense }: ExpenseFormProps) => {
                 placeholder="e.g., Lunch at restaurant"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="bg-white/80 border-slate-200 focus:border-blue-400 focus:ring-blue-400"
+                className="bg-white/80 border-slate-200 focus:border-blue-400 focus:ring-blue-400 hover:border-blue-300 transition-colors"
               />
             </div>
             <div className="space-y-2">
@@ -95,7 +96,7 @@ export const ExpenseForm = ({ onAddExpense }: ExpenseFormProps) => {
                 min="0"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="bg-white/80 border-slate-200 focus:border-blue-400 focus:ring-blue-400"
+                className="bg-white/80 border-slate-200 focus:border-blue-400 focus:ring-blue-400 hover:border-blue-300 transition-colors"
               />
             </div>
           </div>
@@ -104,12 +105,12 @@ export const ExpenseForm = ({ onAddExpense }: ExpenseFormProps) => {
               Category
             </Label>
             <Select value={category} onValueChange={setCategory}>
-              <SelectTrigger className="bg-white/80 border-slate-200 focus:border-blue-400 focus:ring-blue-400">
+              <SelectTrigger className="bg-white/80 border-slate-200 focus:border-blue-400 focus:ring-blue-400 hover:border-blue-300 transition-colors">
                 <SelectValue placeholder="Select a category" />
               </SelectTrigger>
               <SelectContent className="bg-white border-slate-200">
                 {categories.map((cat) => (
-                  <SelectItem key={cat} value={cat} className="hover:bg-slate-50">
+                  <SelectItem key={cat} value={cat} className="hover:bg-blue-50 hover:text-blue-600 transition-colors">
                     {cat}
                   </SelectItem>
                 ))}
@@ -118,9 +119,9 @@ export const ExpenseForm = ({ onAddExpense }: ExpenseFormProps) => {
           </div>
           <Button
             type="submit"
-            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg transition-all duration-200 hover:shadow-xl"
+            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-[1.02]"
           >
-            <Plus className="h-4 w-4 mr-2" />
+            <Plus className="h-4 w-4 mr-2 hover:rotate-90 transition-transform duration-300" />
             Add Expense
           </Button>
         </form>

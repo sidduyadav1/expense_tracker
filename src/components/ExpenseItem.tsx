@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 import { Expense } from "@/types/expense";
@@ -21,23 +20,25 @@ export const ExpenseItem = ({ expense, onDelete, index }: ExpenseItemProps) => {
 
   return (
     <div 
-      className="flex items-center justify-between p-4 bg-white/60 rounded-lg border border-slate-200/50 hover:bg-white/80 transition-all duration-200 animate-in slide-in-from-top-2"
+      className="flex items-center justify-between p-4 bg-white/60 rounded-lg border border-slate-200/50 hover:bg-white/90 hover:shadow-md transition-all duration-200 animate-in slide-in-from-top-2"
       style={{ animationDelay: `${index * 50}ms` }}
     >
       <div className="flex-1 min-w-0">
         <div className="flex items-center justify-between mb-1">
-          <h3 className="font-medium text-slate-800 truncate">
+          <h3 className="font-medium text-slate-800 truncate hover:text-slate-600 transition-colors">
             {expense.title}
           </h3>
-          <span className="text-lg font-bold text-slate-800">
+          <span className="text-lg font-bold text-slate-800 hover:text-green-600 transition-colors">
             ₹{expense.amount.toFixed(2)}
           </span>
         </div>
         <div className="flex items-center gap-3 text-sm text-slate-500">
-          <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+          <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium hover:bg-blue-200 transition-colors">
             {expense.category}
           </span>
-          <span>{formatDate(expense.date)}</span>
+          <span className="hover:text-slate-700 transition-colors">
+            {formatDate(expense.date)}
+          </span>
         </div>
       </div>
       <Button
@@ -46,7 +47,7 @@ export const ExpenseItem = ({ expense, onDelete, index }: ExpenseItemProps) => {
         onClick={() => onDelete(expense.id)}
         className="ml-3 text-red-500 hover:text-red-700 hover:bg-red-50 transition-colors"
       >
-        <Trash2 className="h-4 w-4" />
+        <Trash2 className="h-4 w-4 hover:-rotate-12 hover:scale-110 transition-transform duration-200 cursor-pointer" />
       </Button>
     </div>
   );

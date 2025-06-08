@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Expense, categories } from "@/types/expense";
 import { TrendingUp, DollarSign, Calendar } from "lucide-react";
@@ -34,15 +33,17 @@ export const ExpenseSummary = ({ expenses }: ExpenseSummaryProps) => {
   return (
     <div className="space-y-6">
       {/* Total Summary */}
-      <Card className="backdrop-blur-sm bg-gradient-to-br from-blue-500/90 to-indigo-600/90 border-white/20 shadow-lg text-white">
-        <CardHeader className="pb-3">
-          <CardTitle className="flex items-center gap-2 text-white">
-            <DollarSign className="h-5 w-5" />
-            Total Expenses
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="text-3xl font-bold mb-2">
+      <Card className="backdrop-blur-sm bg-gradient-to-br from-blue-500/90 to-indigo-600/90 border-white/20 shadow-lg text-white hover:shadow-xl hover:from-blue-600/90 hover:to-indigo-700/90 transition-all duration-300">
+  <CardHeader className="pb-3">
+    <CardTitle className="text-white">
+      <span className="group flex items-center gap-2 cursor-pointer">
+        <DollarSign className="h-5 w-5 text-white transition-transform duration-200 group-hover:rotate-12 group-hover:scale-110" />
+        Total Expenses
+      </span>
+    </CardTitle>
+  </CardHeader>
+  <CardContent>
+          <div className="text-3xl font-bold mb-2 hover:scale-105 transition-transform">
             ₹{totalAmount.toFixed(2)}
           </div>
           <p className="text-blue-100 text-sm">
@@ -52,15 +53,17 @@ export const ExpenseSummary = ({ expenses }: ExpenseSummaryProps) => {
       </Card>
 
       {/* This Month */}
-      <Card className="backdrop-blur-sm bg-white/70 border-white/20 shadow-lg">
-        <CardHeader className="pb-3">
-          <CardTitle className="flex items-center gap-2 text-slate-800">
-            <Calendar className="h-5 w-5 text-blue-600" />
-            This Month
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold text-slate-800 mb-2">
+      <Card className="backdrop-blur-sm bg-white/70 border-white/20 shadow-lg hover:shadow-xl hover:bg-white/80 transition-all duration-300">
+  <CardHeader className="pb-3">
+    <CardTitle className="text-slate-800">
+      <span className="group flex items-center gap-2 cursor-pointer">
+        <Calendar className="h-5 w-5 text-blue-600 transition-transform duration-200 group-hover:-rotate-12 group-hover:scale-110" />
+        This Month
+      </span>
+    </CardTitle>
+  </CardHeader>
+  <CardContent>
+          <div className="text-2xl font-bold text-slate-800 mb-2 hover:text-blue-600 transition-colors">
             ₹{thisMonthTotal.toFixed(2)}
           </div>
           <p className="text-slate-600 text-sm">
@@ -71,18 +74,20 @@ export const ExpenseSummary = ({ expenses }: ExpenseSummaryProps) => {
 
       {/* Top Category */}
       {topCategory.total > 0 && (
-        <Card className="backdrop-blur-sm bg-white/70 border-white/20 shadow-lg">
-          <CardHeader className="pb-3">
-            <CardTitle className="flex items-center gap-2 text-slate-800">
-              <TrendingUp className="h-5 w-5 text-blue-600" />
-              Top Category
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-lg font-semibold text-slate-800 mb-1">
+       <Card className="backdrop-blur-sm bg-white/70 border-white/20 shadow-lg hover:shadow-xl hover:bg-white/80 transition-all duration-300">
+       <CardHeader className="pb-3">
+         <CardTitle className="text-slate-800">
+           <span className="group flex items-center gap-2 cursor-pointer">
+             <TrendingUp className="h-5 w-5 text-blue-600 transition-transform duration-200 group-hover:rotate-12 group-hover:scale-110" />
+             Top Category
+           </span>
+         </CardTitle>
+       </CardHeader>
+       <CardContent>
+            <div className="text-lg font-semibold text-slate-800 mb-1 hover:text-blue-600 transition-colors">
               {topCategory.category}
             </div>
-            <div className="text-xl font-bold text-slate-800 mb-2">
+            <div className="text-xl font-bold text-slate-800 mb-2 hover:text-blue-600 transition-colors">
               ₹{topCategory.total.toFixed(2)}
             </div>
             <p className="text-slate-600 text-sm">
@@ -94,7 +99,7 @@ export const ExpenseSummary = ({ expenses }: ExpenseSummaryProps) => {
 
       {/* Category Breakdown */}
       {categoryTotals.length > 0 && (
-        <Card className="backdrop-blur-sm bg-white/70 border-white/20 shadow-lg">
+        <Card className="backdrop-blur-sm bg-white/70 border-white/20 shadow-lg hover:shadow-xl hover:bg-white/80 transition-all duration-300">
           <CardHeader className="pb-3">
             <CardTitle className="text-slate-800">
               Category Breakdown
@@ -106,11 +111,11 @@ export const ExpenseSummary = ({ expenses }: ExpenseSummaryProps) => {
                 .sort((a, b) => b.total - a.total)
                 .slice(0, 5)
                 .map((item) => (
-                  <div key={item.category} className="flex justify-between items-center">
-                    <span className="text-sm font-medium text-slate-700 truncate">
+                  <div key={item.category} className="flex justify-between items-center p-2 rounded-lg hover:bg-slate-50 transition-colors">
+                    <span className="text-sm font-medium text-slate-700 truncate hover:text-blue-600 transition-colors">
                       {item.category}
                     </span>
-                    <span className="text-sm font-bold text-slate-800">
+                    <span className="text-sm font-bold text-slate-800 hover:text-blue-600 transition-colors">
                       ₹{item.total.toFixed(2)}
                     </span>
                   </div>
